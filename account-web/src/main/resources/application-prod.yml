@@ -1,0 +1,36 @@
+spring:
+
+  devtools:
+    restart:
+      enabled: false
+
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/houses?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: 123456
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true # 超时8小时判断
+      test-on-borrow: false
+      validation-query: select 'x'
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
