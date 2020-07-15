@@ -17,6 +17,11 @@
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>流水列表</cite></a>
                         </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('帐号列表','${request.contextPath}/back/home/ts')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>帐号列表</cite></a>
+                    </li>
                 </ul>
             </li>
         </ul>

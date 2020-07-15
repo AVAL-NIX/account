@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/back/home")
 public class BackHomeController extends BaseController {
 
-
     /**
      * 文章主页
      *
@@ -51,6 +50,17 @@ public class BackHomeController extends BaseController {
 
         return "/back/account/account-detail-list";
     }
+
+    /**
+     * TS 帐号
+     *
+     * @return
+     */
+    @GetMapping("/ts")
+    public String ts(Model model) {
+        return "/back/ts/ts-list";
+    }
+
 
 
     /**
