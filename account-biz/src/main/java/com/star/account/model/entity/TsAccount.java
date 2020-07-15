@@ -40,6 +40,10 @@ public class TsAccount extends Model<TsAccount> {
      */
     private String token;
 
+    /**
+     * 备注
+     */
+    private Long count;
 
     @Override
     protected Serializable pkVal() {

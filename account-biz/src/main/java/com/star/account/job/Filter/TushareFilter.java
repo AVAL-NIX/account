@@ -53,6 +53,8 @@ public class TushareFilter {
                 String b = StringEscapeUtils.unescapeJava(a);
                 JSONObject jsonObject = JSONObject.parseObject(b);
                 LOGGER.info("jsonObject:" + jsonObject.toString());
+                tsAccount.setCount(tsAccount.getCount()+1);
+                tsAccount.updateById();
                 Thread.sleep(5000);
             } catch (Exception e) {
                 e.printStackTrace();

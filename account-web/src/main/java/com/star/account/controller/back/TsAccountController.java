@@ -61,19 +61,7 @@ public class TsAccountController {
 
 
     /**
-     * 添加数据
-     *
-     * @return
-     */
-    @PutMapping
-    public R save(@ModelAttribute @Valid TsAccountForm tsAccountForm) {
-        ValidatorUtils.validateEntity(tsAccountForm, TsAccountGroup.class);
-        R result = tsAccountService.save(tsAccountForm);
-        return R.ok(result.getMsg());
-    }
-
-    /**
-     * 添加数据
+     * 修改数据
      *
      * @return
      */
@@ -81,7 +69,9 @@ public class TsAccountController {
     public R update(@ModelAttribute @Valid TsAccountForm tsAccountForm) {
         ValidatorUtils.validateEntity(tsAccountForm, TsAccountGroup.class);
         TsAccount tsAccount = TsAccountConverter.formToObj(tsAccountForm);
-        Boolean b = tsAccountService.updateById(tsAccount);
+        TsAccount db = tsAccountService.getById(tsAccount.getId());
+        tsAccount.setCount(db.getCount());
+        Boolean b = tsAccount.updateById();
         if(!b){
             return R.error();
         }
